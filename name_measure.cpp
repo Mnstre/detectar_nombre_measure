@@ -6,8 +6,9 @@
 using namespace std;
 
 // valor - vFlag
-set valor(string &vLinea, int vFlag) {
+set valor(string &linea, int flag) {
     int pos, len;
+    
     for(int=0 ; i<vLinea.length() ; i++) {
         if(vLinea[i] == '|') {
             if(vFlag == 1) {
@@ -17,6 +18,18 @@ set valor(string &vLinea, int vFlag) {
                 flag++;
             }
         }
+    }
+}
+
+int getPos(int start, string linea, int pos) {
+    for(int i = start ; i<linea.length() ; i++) {
+        if(!pos && linea[i] == '|')
+            return i;
+        else if(pos && linea[i] == '|' || linea[i] == '}') {
+            return i;
+        }
+    } else {
+        return 0;
     }
 }
 
